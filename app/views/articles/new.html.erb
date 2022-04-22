@@ -1,0 +1,12 @@
+<%= form_with url: create_article_path, local: true do |f| %>
+<h3>Create Article</h3>
+<p>
+  <%= f.label :title %><br />
+  <%= f.text_field :title %>
+</p>
+<p>
+  <%= f.label :body %><br />
+  <%= f.text_field :body %>
+</p>
+<p><%= f.submit %></p>
+<% end %> <%= link_to "Articles", articles_path %>
