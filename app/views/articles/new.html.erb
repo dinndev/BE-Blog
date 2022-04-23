@@ -1,12 +1,21 @@
-<%= form_with url: create_article_path, local: true do |f| %>
-<h3>Create Article</h3>
-<p>
-  <%= f.label :title %><br />
-  <%= f.text_field :title %>
-</p>
-<p>
-  <%= f.label :body %><br />
-  <%= f.text_field :body %>
-</p>
-<p><%= f.submit %></p>
-<% end %> <%= link_to "Articles", articles_path %>
+<h1>New Article</h1>
+
+<%= form_with model: @article do |form| %>
+<div>
+  <%= form.label :title %><br />
+  <%= form.text_field :title %> <%
+  @article.errors.full_messages_for(:title).each do |message| %>
+  <div><%= message %></div>
+  <% end %>
+</div>
+
+<div>
+  <%= form.label :body %><br />
+  <%= form.text_area :body %><br />
+  <% @article.errors.full_messages_for(:body).each do |message| %>
+  <div><%= message %></div>
+  <% end %>
+</div>
+
+<div><%= form.submit %></div>
+<% end %>

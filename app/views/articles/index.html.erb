@@ -9,9 +9,12 @@
   <tbody>
     <% @articles.each do |article| %>
     <tr>
-      <td><%=article.id %></td>
-      <td><h3><%=article.title %></h3></td>
+      <td><%= article.id %></td>
+      <td><%= article.title %></td>
       <td><%= article.body %></td>
+      <td>
+        <a href="<%= article_path(article) %>"> more </a>
+      </td>
     </tr>
     <% end %>
   </tbody>
