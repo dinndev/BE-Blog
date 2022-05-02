@@ -17,6 +17,7 @@
       </td>
       <td>
         <a href="<%= edit_article_path(article) %>"> edit </a>
+        <%= link_to "comments", article_comments_path(article) %>
       </td>
     </tr>
     <% end %>

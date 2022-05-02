@@ -1,4 +1,8 @@
 class CategoriesController < ApplicationController
+    def index
+        @categories = Category.all
+    end
+    
     def new
         @category = Category.new
     end
@@ -11,12 +15,21 @@ class CategoriesController < ApplicationController
         end
     end
 
-    def show
+    def edit
         @category = Category.find(params[:id])
+    
     end
-
+    
+   
     def update
-    end
+        @category = Category.find(params[:id])
+    
+        if @category.update(category_params)
+          redirect_to categories_path
+        else
+          render :edit, status: :unprocessable_entity
+        end
+      end
 
     private
 
